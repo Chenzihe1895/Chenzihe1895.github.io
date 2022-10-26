@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>DAY6&nbsp;|&nbsp;NorthWind</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="DAY6">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;⚠️&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="learn.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗒️&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Learning Notes</span>
+        </div>
+      </a>
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about-me-569345.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🎖️&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>About Me</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+      <div class="Header__Cover">
+        <img src="https://www.notion.so/images/page-cover/solid_yellow.png">
+      </div>
+    
+    <div class="Header__Spacer ">
+    </div>
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;⚠️&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">DAY6</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Fri, Oct 14, 2022</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--gray">
+            <a href="tag/work.html">work</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/a04d4be3647643649dcc77f621f3f6cd" class="PageRoot"><div id="https://www.notion.so/d2ef6a9a28454fd79aafe9aa35f77a49" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">梳理一下Dispatcher的逻辑：</span></span></p></div><div id="https://www.notion.so/b7fac0322b1b484090740fffa0545c64" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb651c501-3b61-4c36-a479-128b8c732ce6%2FUntitled.png?width=425&amp;table=block&amp;id=b7fac032-2b1b-4840-9074-0fffa0545c64"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb651c501-3b61-4c36-a479-128b8c732ce6%2FUntitled.png?width=425&amp;table=block&amp;id=b7fac032-2b1b-4840-9074-0fffa0545c64" style="width:425px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/a785e8900540400593db8e46045c3454" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">conditionalDispatcher在onExecute0的时候，whenTrue是true发送给的operator，whenfalse是false发送给的operator。</span></span></p></div><div id="https://www.notion.so/ea330d73524f49e599389228623c1e06" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">increaseRef没有啥用,whentrue和whenfalse的加载过程如下：</span></span></p></div><div id="https://www.notion.so/f7879c74e721479398663de4ffbe43b9" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F49c9b76d-2d7f-49c2-b83f-48abcd028626%2FUntitled.png?width=1088&amp;table=block&amp;id=f7879c74-e721-4793-9866-3de4ffbe43b9"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F49c9b76d-2d7f-49c2-b83f-48abcd028626%2FUntitled.png?width=1088&amp;table=block&amp;id=f7879c74-e721-4793-9866-3de4ffbe43b9" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/a484527b4b6f468f897917adf07e58e8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">然后执行whentrue和whenfalse的逻辑：</span></span></p></div><div id="https://www.notion.so/35bdb16d9c674dbea0628205c4e9b9b3" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff29d9a60-f95f-46ed-b8fb-fe7f23847ddc%2FUntitled.png?width=1271&amp;table=block&amp;id=35bdb16d-9c67-4dbe-a062-8205c4e9b9b3"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff29d9a60-f95f-46ed-b8fb-fe7f23847ddc%2FUntitled.png?width=1271&amp;table=block&amp;id=35bdb16d-9c67-4dbe-a062-8205c4e9b9b3" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/d22777ee733e4ce88956edb900e68f42" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">this是conditionalfilter，他继承了abstractFilter，然后在这里执行:</span></span></p></div><div id="https://www.notion.so/f69dcfcfd0be4490b05fc12a3857425c" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe8910b1b-29ce-4336-bc32-34add28d60c4%2FUntitled.png?width=574&amp;table=block&amp;id=f69dcfcf-d0be-4490-b05f-c12a3857425c"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe8910b1b-29ce-4336-bc32-34add28d60c4%2FUntitled.png?width=574&amp;table=block&amp;id=f69dcfcf-d0be-4490-b05f-c12a3857425c" style="width:574px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/8606173711d14cb28a924714023de518" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">然后：</span></span></p></div><div id="https://www.notion.so/5ef57494df994260894a767c2f6ca6e0" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4f2c8818-5ddd-4ef1-89fd-4c31729596cb%2FUntitled.png?width=620&amp;table=block&amp;id=5ef57494-df99-4260-894a-767c2f6ca6e0"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4f2c8818-5ddd-4ef1-89fd-4c31729596cb%2FUntitled.png?width=620&amp;table=block&amp;id=5ef57494-df99-4260-894a-767c2f6ca6e0" style="width:620px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/482c2ed15f6f4831b2fcdd3585874e7a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在isEverTrue中会执行到一下逻辑：</span></span></p></div><div id="https://www.notion.so/90b94efc98a2465b8eb837f39eabe959" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F45896b44-97db-41c5-902b-550a43af2551%2FUntitled.png?width=690&amp;table=block&amp;id=90b94efc-98a2-465b-8eb8-37f39eabe959"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F45896b44-97db-41c5-902b-550a43af2551%2FUntitled.png?width=690&amp;table=block&amp;id=90b94efc-98a2-465b-8eb8-37f39eabe959" style="width:690px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/f2bc2db6eeaa4417bdb3d728fcc75fd4" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这个nextOp.onExecute(msg)，即为msg在各算子中运算的核心。</span></span></p></div><div id="https://www.notion.so/602b3c12206941ce922ca9453bdaee8d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/aaf4aebcd8c24625bb93f21092165c56" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/9d4a68b3dbb14de8bcd0aa7c067ca7a0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">最后留下一点今天的感想：和数据科学有关的包，还是Python的最全面，用起来就会很方便。公司有一个C++组，是专门为我们提供协议解析的，他们的工作量现在很大。现在的公司是对每秒TB级（已经非常保守了）的数据进行处理，使用Python的效率就会低很多。而我记得北极数据，他们的技术栈是Python，他们对实时大数据的处理需求不大。面对的业务场景不同，对于技术栈的要去就大不一样。我记得lx以前说，toB的业务对数据实时处理的要求不大。这种东西看起来还是分场景的。业务限制了技术栈的选择。就像大型游戏开发基本都是C、C++。</span></span></p></div><div id="https://www.notion.so/268e0bb0c933431d978f5809434d6fe2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这部分说的很没有逻辑，我已经不知所言了，想到哪扯到哪，哈哈。</span></span></p></div></article>
+  <footer class="Footer">
+  <div>&copy; NorthWind 2022</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+</body>
+
+</html>

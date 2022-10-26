@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>Netty&nbsp;|&nbsp;NorthWind</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="Netty">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="learn.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗒️&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Learning Notes</span>
+        </div>
+      </a>
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about-me-569345.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🎖️&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>About Me</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">Netty</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, Oct 17, 2022</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--purple">
+            <a href="tag/learning.html">learning</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/4246dc2909e04157a5b746192a8c67ca" class="PageRoot"><div id="https://www.notion.so/b844166da6a44924b16e127b5ebe5ced" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">netty是由三个核心组件构成：缓冲区、通道和事件模型</span></span></p></div><div id="https://www.notion.so/bf9e35136b1041f09fe2071e5fec48b6" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/088b3958ec444b7f8e50f4ee48023388" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">阻塞和非阻塞：</span></span></p></div><div id="https://www.notion.so/40b36c897987443a88fd31576db77bba" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">阻塞：调用后就要等到IO结束才返回。</span></span></p></div><div id="https://www.notion.so/7c1dd2a1095f4663827c068d226aa69d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">非阻塞：IO没有结束就直接返回，IO结束再通知。</span></span></p></div><div id="https://www.notion.so/b68152bdf3574261a25a0115ef655b6a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/cf6dc94e2bab4f9fb8a1a92f56600cb7" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4687cca9-7d81-4435-9fd0-4b5e355ca6c4%2FUntitled.png?width=1202&amp;table=block&amp;id=cf6dc94e-2bab-4f9f-b8a1-a92f56600cb7"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4687cca9-7d81-4435-9fd0-4b5e355ca6c4%2FUntitled.png?width=1202&amp;table=block&amp;id=cf6dc94e-2bab-4f9f-b8a1-a92f56600cb7" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/fab27983f137445dbbec5b337d034b57" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/a74bba3f3a1f485a97a4e745a511569a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Netty架构图：</span></span></p></div><div id="https://www.notion.so/d4d0cc1dc29f4106b585956ffdcd988c" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc124c5e9-628a-43f7-850d-50ad918f308e%2FUntitled.png?width=592&amp;table=block&amp;id=d4d0cc1d-c29f-4106-b585-956ffdcd988c"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc124c5e9-628a-43f7-850d-50ad918f308e%2FUntitled.png?width=592&amp;table=block&amp;id=d4d0cc1d-c29f-4106-b585-956ffdcd988c" style="width:592px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/5a807428f11d4344b6f3f2326669d629" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Netty的基础是ByteBuf类，其他的Buffer类基本都是该类的衍生类。</span></span></p></div><div id="https://www.notion.so/353a5abe537e47298efbed73575d4268" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Netty有一些内置的复合缓冲区类型，可以实现透明的零拷贝（一种 I/O 操作优化技术，可以快速高效地将数据从文件系统移动到网络接口，而不需要将其从内核空间复制到用户空间）。</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/0ab58c5ac0644b0581d1a4aebe560718" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">什么是零拷贝？</span></span></li></ul><div id="https://www.notion.so/c9834fab15c44865acc88f2ef3d4483e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们知道数据在使用底层协议进行传输的过程中是会被封装成为一个个的包进行传输。当传输的数据过大，一个包放不下的时候，还需要对数据进行拆分，目的方在接收到数据之后，需要对收到的数据进行组装，</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">一般情况下这个组装的操作是对数据的拷贝，将拆分过后的对象拷贝到一个长的数据空间中。</strong></span></span></p></div><div id="https://www.notion.so/162f2344b0c1492e888339eea662d85b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Netty中有很多这种零拷贝工具类方法：</span></span></p></div><pre id="https://www.notion.so/be17e618ae144ef386926130c6ce36da" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment">//封装Byte数组</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ByteBuf</span> <span class="token function">wrappedBuffer</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> arrays<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">wrappedBuffer</span><span class="token punctuation">(</span>arrays<span class="token punctuation">.</span>length<span class="token punctuation">,</span> arrays<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token comment">//封装ByteBuf</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ByteBuf</span> <span class="token function">wrappedBuffer</span><span class="token punctuation">(</span><span class="token class-name">ByteBuf</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> buffers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">wrappedBuffer</span><span class="token punctuation">(</span>buffers<span class="token punctuation">.</span>length<span class="token punctuation">,</span> buffers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token comment">//封装ByteBuffer</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ByteBuf</span> <span class="token function">wrappedBuffer</span><span class="token punctuation">(</span><span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> buffers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">wrappedBuffer</span><span class="token punctuation">(</span>buffers<span class="token punctuation">.</span>length<span class="token punctuation">,</span> buffers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></span></span></span></code></pre><div id="https://www.notion.so/898dd093f688485a92dc3cbda11ab35f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/081d9bc54dc746dbb1a1248a367ac3ba" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Netty提供了ChannelInboundHandlerAdapter类，来处理服务端的各种请求。</span></span></p></div><div id="https://www.notion.so/e32f3ef80158492cbc461ab7c7eb2d9b" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffaeda44e-b9ca-4972-add5-31ca950d4335%2FUntitled.png?width=830&amp;table=block&amp;id=e32f3ef8-0158-492c-bc46-1ab7c7eb2d9b"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffaeda44e-b9ca-4972-add5-31ca950d4335%2FUntitled.png?width=830&amp;table=block&amp;id=e32f3ef8-0158-492c-bc46-1ab7c7eb2d9b" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/067b38e37507487f9085b04baf095549" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">Handler部分</span></span><ul class="BulletedListWrapper"><li id="https://www.notion.so/c114bf8ea74f4732add90361f9d98fa1" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">核心API</span></span></li></ul><div id="https://www.notion.so/b606c60e74144233a1d2c6b8356258dc" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">入站Handler：</span></span></p></div></li></ul><pre id="https://www.notion.so/631647c9b2bf47d8a72558e14d3075be" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ChannelInboundHandler</span> <span class="token keyword">extends</span> <span class="token class-name">ChannelHandler</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     当通道注册完成后，Netty会调用fireChannelRegistered()方法，触发通道注册事件，
+     而在通道流水线注册过的入站处理器的channelRegistered()回调方法会被调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelRegistered</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 当通道激活完成后，Netty会调用fireChannelActive()方法，触发通道激活事件，
+     而在通道流水线注册过的入站处理器的channelActive()回调方法会被调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelUnregistered</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+     <span class="token comment">/**
+     * 当通道激活完成后，Netty会调用fireChannelActive()方法，触发通道激活事件，
+     而在通道流水线注册过的入站处理器的channelActive()回调方法会被调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelActive</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 当连接被断开或者不可用时，Netty会调用fireChannelInactive()方法
+     ，触发连接不可用事件，
+     而在通道流水线注册过的入站处理器的channelInactive()回调方法会被调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelInactive</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     当通道缓冲区可读时，Netty会调用fireChannelRead()方法，触发通道可读事件，
+     而在通道流水线注册过的入站处理器的channelRead()回调方法会被调用，
+     以便完成入站数据的读取和处理。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelRead</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 当通道缓冲区读完时，Netty会调用fireChannelReadComplete()方法，
+     触发通道缓冲区读完事件，
+     而在通道流水线注册过的入站处理器的channelReadComplete()回调方法会被调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelReadComplete</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 如果触发了用户事件，则被调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">userEventTriggered</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> evt<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 一旦Channel的可写状态改变，就会被调用。 
+     可以使用Channel.isWritable()检查状态。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">channelWritabilityChanged</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 异常回调
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"deprecation"</span><span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">exceptionCaught</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Throwable</span> cause<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span></span></code></pre><div id="https://www.notion.so/131633f4d4c645c380f6a1fa7b628c54" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在netty中，入站处理器的默认实现ChannelInboundHandlerAdapter，可以继承该类，按需实现对应方法。</span></span></p><div class="Text__Children"><div id="https://www.notion.so/79b48392d9fd44c79bf4b51345abfaa4" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">出站Handler：</span></span></p></div></div></div><pre id="https://www.notion.so/23726e26b730480cb97d8fdf88f9f7f4" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ChannelOutboundHandler</span> <span class="token keyword">extends</span> <span class="token class-name">ChannelHandler</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+    监听地址（IP+端口）绑定：完成底层Java IO通道的IP地址绑定。
+    如果使用TCP传输协议，这个方法用于服务端。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">SocketAddress</span> localAddress<span class="token punctuation">,</span> <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+      连接服务端：完成底层Java IO通道的服务端的连接操作。
+      如果使用TCP传输协议，那么这个方法将用于客户端。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span>
+            <span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">SocketAddress</span> remoteAddress<span class="token punctuation">,</span>
+            <span class="token class-name">SocketAddress</span> localAddress<span class="token punctuation">,</span> <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 断开服务器连接：断开底层Java IO通道的socket连接。
+     如果使用TCP传输协议，此方法主要用于客户端。
+     *
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 主动关闭通道：关闭底层的通道，例如服务端的新连接监听通道。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+   从当前注册的EventLoop进行取消注册操作后调用。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">deregister</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 从底层读数据：完成Netty通道从Java IO通道的数据读取。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+    * 写数据到底层：完成Netty通道向底层Java IO通道的数据写入操作。此方法仅仅是触发一下操作，并不是完成实际的数据写入操作。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">,</span> <span class="token class-name">ChannelPromise</span> promise<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 将底层缓存区的数据腾空，立即写出到对端。
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">flush</span><span class="token punctuation">(</span><span class="token class-name">ChannelHandlerContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></span></span></code></pre><div id="https://www.notion.so/ba211c0518874af1abd29bbd669f98a2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">同理，使用时继承该类，并重写自己需要的方法。</span></span></p><div class="Text__Children"><div id="https://www.notion.so/4f0724eb6fab4a9296ab5ef5b4de7e7a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">ChannelInitialiazer通道初始化Handler：</span></span></p></div><div id="https://www.notion.so/03543daafb974f97b9f7af7262511a53" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">一条Netty通道拥有一条Handler业务处理器流水线，负责装配自己的Handler业务处理器。装配Handler的工作发生在通道开始工作之前。</span></span></p></div><div id="https://www.notion.so/31aa0515cbe541e3ab30c59ddf6d6dca" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fca481101-0d27-4cf7-ad4d-ed162c54e660%2FUntitled.png?width=671&amp;table=block&amp;id=31aa0515-cbe5-41e3-ab30-c59ddf6d6dca"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fca481101-0d27-4cf7-ad4d-ed162c54e660%2FUntitled.png?width=671&amp;table=block&amp;id=31aa0515-cbe5-41e3-ab30-c59ddf6d6dca" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/9bd95dee65f44714a9c32d5837ad715a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">图中，ChannelInitializer，属于入站处理器的类型，继承了ChannelInboundHandlerAdapter。其中，InitChannel()为ChannelInitializer定义的抽象方法，需要开发人员自己实现.</span></span></p></div><pre id="https://www.notion.so/66cf67f7adbd41a996b93bfe60337ea3" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment">/**
+一旦Channel被注册，这个方法就会被调用。 
+方法返回后，此实例将从Channel的ChannelPipeline中删除。
+**/</span>
+<span class="token keyword">protected</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">initChannel</span><span class="token punctuation">(</span><span class="token class-name">C</span> ch<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span><span class="token punctuation">;</span></span></span></span></code></pre></div></div><div id="https://www.notion.so/ce0b090d22624715a4dc2a9b35f43648" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在通道初始化时，会调用提前注册的初始化处理器的initChannel()方法。比如，在父通道接收到新连接并且要初始化其子通道时，会调用初始化器的initChannel()方法，并且会将新接收的通道作为参数，传递给此方法（父通道初始化子通道）。</span></span></p></div><div id="https://www.notion.so/a1676511b82b415da77d29ba614ea7a7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">一般来说，initChannel()方法的大致业务代码是：拿到新连接通道作为实际参数，往它的流水线中装配Handler业务处理器。</strong></span></span></p></div><div id="https://www.notion.so/88f8fe9224c04f1fb9893da007cedc24" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">暂时看晕了，一会儿再来看。</span></span></p></div><div id="https://www.notion.so/a66364763d5749a4bc7f985b039cd7c6" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fed987973-8b9c-4b87-bd68-83bccde417c0%2FUntitled.png?width=1942&amp;table=block&amp;id=a6636476-3d57-49a4-bc7f-985b039cd7c6"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fed987973-8b9c-4b87-bd68-83bccde417c0%2FUntitled.png?width=1942&amp;table=block&amp;id=a6636476-3d57-49a4-bc7f-985b039cd7c6" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div></article>
+  <footer class="Footer">
+  <div>&copy; NorthWind 2022</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+</body>
+
+</html>
