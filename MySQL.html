@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>MySQL&nbsp;|&nbsp;NorthWind</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="MySQL">
+  
+    <meta name="description" content="MySQL">
+    <meta property="og:description" content="MySQL">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📝&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📖&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="-ad6d54.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;💘&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>和张大法官</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="stock.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🧦&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>股海狂蛆——长期更新</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="learn.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗒️&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Learning Notes</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about-me-569345.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🎖️&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>About Me</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;📝&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">MySQL</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Tue, Mar 26, 2024</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--purple">
+            <a href="tag/learning.html">learning</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/b21dbd859a0746b8beb4a056420056df" class="PageRoot"><div id="https://www.notion.so/e0ea7509835842e1a42a71458666bfba" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在云数据库工作了1年多了，形形色色的数据库都用过，随便记录一下相关的知识吧</span></span></p></div><div id="https://www.notion.so/2a4de94d0d88421a9a960e79938e5ab5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">MySQL的经典两个存储引擎—Innodb和MylSam（几乎没人用了，innodb比MylSAM性能优越太多了）</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/d944daf04cd143d586bbf698e9c9c92d" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">索引</span></span></li></ul><div id="https://www.notion.so/05cd91bcc90c415ca14eaeb0d09804d3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">mylsam — 非聚集索引（非聚簇索引）</span></span></p></div><div id="https://www.notion.so/7167f86e9a9e42869b42f796a9ad5900" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">innodb — 聚集索引（聚簇索引）</span></span></p></div><div id="https://www.notion.so/e5669ffd076f4ae2bf75fa1f766c71af" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">非聚集索引：索引文件和数据文件分离 .myi 和 .myd  叶子节点存数据位置</span></span></p></div><div id="https://www.notion.so/a16e775f73d54e9db12eb92041f0df85" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">聚集索引：叶子节点包含完整的数据记录  可进一步分为 一级索引、二级索引</span></span></p></div><div id="https://www.notion.so/bac81f3554194fc6a46d4657dde95043" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">一级索引：innodb的主键索引</span></span></p></div><div id="https://www.notion.so/a7b2a61ea5044a679a54ce923923d7bc" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">二级索引：innodb的非主键索引</span></span></p></div><div id="https://www.notion.so/decb9ff036cc48018c2fea254093e0ec" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">联合索引：一个索引里包含多个列</span></span></p></div><div id="https://www.notion.so/a1785a13290f45759781ef765e6355e2" class="Divider"></div><div id="https://www.notion.so/40aa733adb9b4d8695141b4ea2e9a6bd" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">B+ Tree vs Hash</span></span></p></div><div id="https://www.notion.so/7103c6393780453383bfa722c900bcde" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">很多时候 hash效率更高，只有一次计算，即可定位位置（冲突例外）在 = IN 场景下，表现优秀。</span></span></p></div><div id="https://www.notion.so/521062c4667846f0816487aaec878d77" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">hash 在范围查找上 &gt; &lt; 过于不友好，实际上很少使用，相当于全表扫描</span></span></p></div><div id="https://www.notion.so/8b268f3c61cb4640b85087add6cb03f2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">hash 存在冲突问题，后面再详细说明</span></span></p></div><div id="https://www.notion.so/4da4fdec633f4914ace44841eaafa9a4" class="Divider"></div><div id="https://www.notion.so/58d75595f8744c39a4f2e179ebfbe578" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">innodb 推荐 建表时使用 整型（int）、自增的主键</span></span></p></div><div id="https://www.notion.so/08bac58ef80841efa4dc42d62a6a478d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">整型：  整型比大小快(字符串要逐位比较)、占用空间小（相对于UUID）</span></span></p></div><div id="https://www.notion.so/7aafea4b05214b34b36c94875b09fd52" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">自增： 新增元素时，在叶子节点上自然往后插入，减少叶子节点分裂导致的数据存储空间改变的转移复制开销。</span></span></p></div><div id="https://www.notion.so/c8bad0d6fc5a4c95b1850d45ccf2a26f" class="Divider"></div><div id="https://www.notion.so/ac6aa87c51f04166917cfa2c8cbace6c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">联合索引：</span></span></p></div><div id="https://www.notion.so/8618ba8d359043a4a8381e3a3a9e7dcb" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F2059ce5a-e374-47bb-9f68-e39f878d7883%2F29d2db1a-ee41-4369-a114-0d11aa409566%2FUntitled.png?width=774&amp;table=block&amp;id=8618ba8d-3590-43a4-a838-1e3a3a9e7dcb"><img src="https://www.notion.so/signed/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F2059ce5a-e374-47bb-9f68-e39f878d7883%2F29d2db1a-ee41-4369-a114-0d11aa409566%2FUntitled.png?width=774&amp;table=block&amp;id=8618ba8d-3590-43a4-a838-1e3a3a9e7dcb" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/41b90f010f584cecbe21f6fa47dda4c1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+  <footer class="Footer">
+  <div>&copy; NorthWind 2022</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+</body>
+
+</html>
